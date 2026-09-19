@@ -35,7 +35,11 @@ namespace UnityEngine.UI.Extensions.ColorPicker
 
 		protected virtual void Reset()
 		{
+#if UNITY_6000_5_OR_NEWER
+			playerPrefsKey = "colorpicker_" + GetEntityId().ToString();
+#else
 			playerPrefsKey = "colorpicker_" + GetInstanceID().ToString();
+#endif
 		}
 
 		protected virtual void Awake()
